@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Nedarvningsfremllægelse
 {
-    public class Bil
+    abstract class Bil
     {
         public int BilPrisExAfgift { get; private set; }
 
@@ -68,9 +68,6 @@ namespace Nedarvningsfremllægelse
             return BilPrisExAfgift + RegistreringsAfgift();
         }
 
-        public virtual int HalvÅrligEjerafgift()
-        {
-            return 1000;
-        }
+        public abstract int HalvÅrligEjerafgift();
     }
 }

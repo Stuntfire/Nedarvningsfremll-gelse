@@ -24,13 +24,48 @@ namespace Nedarvningsfremllægelse
 
         public override int HalvÅrligEjerafgift()
         {
-            //return 1200;
-            // virker kun hvis base metoden er sat til virtual
-            if (!PartikelFilter)
+            if (PartikelFilter)
             {
-                return base.HalvÅrligEjerafgift() + 500;
+                if (KmPrLiter < 15)
+                {
+                    return 2000;
+                }
+                else if (KmPrLiter > 15 && KmPrLiter < 25)
+                {
+                    return 1000;
+                }
+                else
+                    return 350;
             }
-            return base.HalvÅrligEjerafgift();
+
+            else
+            {
+                if (KmPrLiter < 15)
+                {
+                    return 2500;
+                }
+                else if (KmPrLiter > 15 && KmPrLiter < 25)
+                {
+                    return 1500;
+                }
+                else
+                    return 850;
+            }
+
+
+
         }
+
+        // Sådan så metoden ud inden Bil.cs blev ændret til abstract
+        //public override int HalvÅrligEjerafgift()
+        //{
+        //    //return 1200;
+        //    // virker kun hvis base metoden er sat til virtual
+        //    if (!PartikelFilter)
+        //    {
+        //        return base.HalvÅrligEjerafgift() + 500;
+        //    }
+        //    return base.HalvÅrligEjerafgift();
+        //}
     }
 }
