@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Nedarvningsfremllægelse
 {
-    class BenzinBil : Bil
+    class BenzinBil //: Bil
     {
-        public BenzinBil(int pris) : base(pris)
+        public BenzinBil(int pris) //: base(pris)
         {
         }
 

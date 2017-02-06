@@ -18,10 +18,13 @@ namespace Nedarvningsfremllægelse
 
         public int KmPrLiter { get; set; }
 
-
-        public Bil(int pris)
+        public Bil(string mærke, int bilPrisExAfgift, int købsår, int kmPrLiter, string registreringsNr)
         {
-            this.BilPrisExAfgift = pris;
+            this.Mærke = mærke;
+            this.BilPrisExAfgift = bilPrisExAfgift;
+            this.KøbsÅr = købsår;
+            this.KmPrLiter = kmPrLiter;
+            this.RegistreringsNr = registreringsNr;
         }
 
         public virtual int RegistreringsAfgift()
@@ -68,14 +71,6 @@ namespace Nedarvningsfremllægelse
         public virtual int HalvÅrligEjerafgift()
         {
             return 1000;
-        }
-
-        public Bil(string mærke, int bilPrisExAfgift, int købsår, int kmPrLiter)
-        {
-            this.Mærke = mærke;
-            this.BilPrisExAfgift = bilPrisExAfgift;
-            this.KøbsÅr = købsår;
-            this.KmPrLiter = kmPrLiter;
         }
     }
 }

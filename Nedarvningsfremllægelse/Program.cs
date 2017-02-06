@@ -10,11 +10,33 @@ namespace Nedarvningsfremllægelse
     {
         static void Main(string[] args)
         {
+            
+            DieselBil dB01 = new DieselBil("Lexus", 120000, 2012, 12, "AA 78501", true);
+            DieselBil dB02 = new DieselBil("Lexus", 120000, 2012, 12, "AA 78502", true);
+            DieselBil dB03 = new DieselBil("Lexus", 120000, 2012, 12, "AA 78503", true);
+            DieselBil dB04 = new DieselBil("Lexus", 120000, 2012, 12, "AA 78504", false);
+            DieselBil dB05 = new DieselBil("Lexus", 120000, 2012, 12, "AA 78505", false);
 
-            Bil nyBil = new Bil("BMW", 100000, 2013, 15);
-            Console.WriteLine(nyBil.BilPrisExAfgift);
+            List<DieselBil> dieselBiler = new List<DieselBil>();
+
+            dieselBiler.Add(dB01);
+            dieselBiler.Add(dB02);
+            dieselBiler.Add(dB03);
+            dieselBiler.Add(dB04);
+            dieselBiler.Add(dB05);
+
+            foreach (DieselBil db in dieselBiler)
+            {
+                Console.WriteLine(db.RegistreringsNr);
+                Console.WriteLine(db.HalvÅrligEjerafgift());
+            }
+
+            //Bil nyBil = new Bil("BMW", 100000, 2015, 15, "XY 54871");
+            //Console.WriteLine(nyBil.BilPrisExAfgift);
             //Console.WriteLine(nyBil.RegistreringsAfgift());
-            Console.WriteLine(nyBil.TotalPris());
+            //Console.WriteLine(nyBil.TotalPris());
+
+
         }
     }
 }

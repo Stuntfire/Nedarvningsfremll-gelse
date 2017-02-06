@@ -9,21 +9,28 @@ namespace Nedarvningsfremllægelse
     class DieselBil : Bil
     {
         public bool PartikelFilter { get; private set; }
-        public DieselBil(int pris, bool pf) : base(pris)
+
+        public DieselBil(string mærke, int bilPrisExAfgift, int købsår, int kmPrLiter, string registreringsNr, bool partikelFilter) 
+            : base(mærke, bilPrisExAfgift, købsår, kmPrLiter, registreringsNr)
         {
-            this.PartikelFilter = pf;
+            this.PartikelFilter = partikelFilter;
         }
 
-        public DieselBil(int pris) : this(pris, true)
+        public DieselBil(string mærke, int bilPrisExAfgift, int købsår, int kmPrLiter, string registreringsNr) 
+            : this(mærke, bilPrisExAfgift, købsår, kmPrLiter, registreringsNr, true)
         {
 
         }
 
-        //public override int Afgift()
-        //{
-        //    return 1200;
-        //    // virker kun hvis base metoden er sat til virtual
-        //    //return base.Afgift() + 200;
-        //}
+        public override int HalvÅrligEjerafgift()
+        {
+            //return 1200;
+            // virker kun hvis base metoden er sat til virtual
+            if (!PartikelFilter)
+            {
+                return base.HalvÅrligEjerafgift() + 500;
+            }
+            return base.HalvÅrligEjerafgift();
+        }
     }
 }
