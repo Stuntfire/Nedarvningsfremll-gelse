@@ -10,12 +10,14 @@ namespace Nedarvningsfremllægelse
     {
         public bool PartikelFilter { get; private set; }
         public int Tank { get; set; }
+        public int KmPrLiter { get; set; }
 
         public DieselBil(string mærke, int bilPrisExAfgift, int købsår, int kmPrLiter, string registreringsNr, bool partikelFilter, int tank) 
-            : base(mærke, bilPrisExAfgift, købsår, kmPrLiter, registreringsNr)
+            : base(mærke, bilPrisExAfgift, købsår, /*kmPrLiter,*/ registreringsNr)
         {
             this.PartikelFilter = partikelFilter;
             this.Tank = tank;
+            this.KmPrLiter = kmPrLiter;
         }
 
         public DieselBil(string mærke, int bilPrisExAfgift, int købsår, int kmPrLiter, string registreringsNr, int tank) 

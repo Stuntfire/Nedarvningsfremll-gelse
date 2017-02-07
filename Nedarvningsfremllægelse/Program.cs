@@ -50,28 +50,76 @@ namespace Nedarvningsfremllægelse
 
             foreach (BenzinBil bb in benzinBilList)
             {
-                Console.WriteLine(bb.BilPrisExAfgift);
-                Console.WriteLine($"Din {bb.Mærke} er fra {bb.KøbsÅr}, har en totalpris på: {bb.TotalPris()} kr. kører {bb.KmPrLiter} pr/l, før afgift koster den {bb.BilPrisExAfgift} kr.");
-                Console.WriteLine($"{bb.HalvÅrligEjerafgift()} kr. koster din {bb.Mærke} i halvårlig ejerafgift");
+                //Console.WriteLine(bb.BilPrisExAfgift);
+                Console.WriteLine($"Din {bb.Mærke} er fra {bb.KøbsÅr} og før afgift koster den {bb.BilPrisExAfgift} kr., har en totalpris på: {bb.TotalPris()} kr. kører {bb.KmPrLiter} pr/l, derfor skal du betale {bb.HalvÅrligEjerafgift()} kr. i halvårlig ejerafgift");
                 Console.WriteLine(bb.Rækkevidde());
             }
 
-            //List<Bil> bilList = new List<Bil>();
+            // Her kommer en liste over elbiler:
+            List<ElBil> elBilList = new List<ElBil>();
 
-            //foreach (Bil bil in bilList)
-            //{
-            //    if (bil is DieselBil)
-            //    {
-            //        DieselBil dieselbil = bil as DieselBil;
-            //        Console.WriteLine(dieselbil.PartikelFilter);
-            //    }
-            //    else if (bil is BenzinBil)
-            //    {
-            //        BenzinBil benzinBil = bil as BenzinBil;
-            //        Console.WriteLine(benzinBil.Oktan);
-            //    }
+            ElBil eB01 = new ElBil("Rimac", 800000, 2017, "EB 99401", 82, 8);
+            ElBil eB02 = new ElBil("Tesla", 800000, 2017, "EB 99401", 90, 8);
+            ElBil eB03 = new ElBil("Nissan Leaf", 800000, 2017, "EB 99401", 82, 8);
+            ElBil eB04 = new ElBil("Tesla 3", 800000, 2017, "EB 99401", 75, 8);
+            ElBil eB05 = new ElBil("Chevy Bolt EV", 100000, 2017, "EB 99401", 82, 8);
 
-            //}
+            elBilList.Add(eB01);
+            elBilList.Add(eB02);
+            elBilList.Add(eB03);
+            elBilList.Add(eB04);
+            elBilList.Add(eB05);
+
+            foreach (ElBil elbil in elBilList)
+            {
+                Console.WriteLine(elbil.Rækkevidde());
+                Console.WriteLine(elbil.RegistreringsAfgift());
+            }
+
+            // Her laver vi en liste der samler alle vores biler:
+            List<IBil> bilList = new List<IBil>();
+
+            bilList.Add(dB01);
+            bilList.Add(dB02);
+            bilList.Add(dB03);
+            bilList.Add(dB04);
+            bilList.Add(dB05);
+            bilList.Add(dB06);
+            bilList.Add(bB01);
+            bilList.Add(bB02);
+            bilList.Add(bB03);
+            bilList.Add(bB04);
+            bilList.Add(bB05);
+            bilList.Add(eB01);
+            bilList.Add(eB02);
+            bilList.Add(eB03);
+            bilList.Add(eB04);
+            bilList.Add(eB05);
+
+            foreach (Bil bil in bilList)
+            {
+                if (bil is DieselBil)
+                {
+                    DieselBil dieselbil = bil as DieselBil;
+                    Console.WriteLine(dieselbil.PartikelFilter);
+                    Console.WriteLine(dieselbil.HvilkenBilErJeg());
+                }
+                else if (bil is BenzinBil)
+                {
+                    BenzinBil benzinBil = bil as BenzinBil;
+                    Console.WriteLine(benzinBil.Oktan);
+                    Console.WriteLine(benzinBil.HvilkenBilErJeg());
+                }
+                else
+                {
+                    ElBil elbil = bil as ElBil;
+                    Console.WriteLine(elbil.BatteriKapacitet);
+                    Console.WriteLine(elbil.HvilkenBilErJeg());
+                    Console.WriteLine(elbil.BilPrisExAfgift);
+                    Console.WriteLine(elbil.TotalPris());
+                }
+
+            }
 
             //Bil nyBil = new Bil("BMW", 100000, 2015, 15, "XY 54871");
             //Console.WriteLine(nyBil.BilPrisExAfgift);

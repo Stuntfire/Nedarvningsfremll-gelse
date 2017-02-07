@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Nedarvningsfremllægelse
 {
-    abstract class Bil
+    abstract class Bil : IBil
     {
         public int BilPrisExAfgift { get; private set; }
 
@@ -16,16 +16,16 @@ namespace Nedarvningsfremllægelse
 
         public string RegistreringsNr { get; set; }
 
-        public int KmPrLiter { get; set; }
+        //public int KmPrLiter { get; set; }
 
         public int Oktan { get; set; }
 
-        public Bil(string mærke, int bilPrisExAfgift, int købsår, int kmPrLiter, string registreringsNr)
+        public Bil(string mærke, int bilPrisExAfgift, int købsår, /*int kmPrLiter,*/ string registreringsNr)
         {
             this.Mærke = mærke;
             this.BilPrisExAfgift = bilPrisExAfgift;
             this.KøbsÅr = købsår;
-            this.KmPrLiter = kmPrLiter;
+            //this.KmPrLiter = kmPrLiter;
             this.RegistreringsNr = registreringsNr;
         }
 

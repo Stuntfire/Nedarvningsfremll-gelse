@@ -9,11 +9,13 @@ namespace Nedarvningsfremllægelse
     sealed class BenzinBil : Bil
     {
         public int Tank { get; set; }
+        public int KmPrLiter { get; set; }
 
         public BenzinBil(string mærke, int bilPrisExAfgift, int købsår, int kmPrLiter, string registreringsNr, int tank) 
-            : base(mærke, bilPrisExAfgift, købsår, kmPrLiter, registreringsNr)
+            : base(mærke, bilPrisExAfgift, købsår, registreringsNr)
         {
             this.Tank = tank;
+            this.KmPrLiter = kmPrLiter;
         }
 
         public override int HalvÅrligEjerafgift()
