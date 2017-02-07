@@ -112,11 +112,16 @@ namespace Nedarvningsfremllægelse
                 }
                 else
                 {
-                    ElBil elbil = bil as ElBil;
-                    Console.WriteLine(elbil.BatteriKapacitet);
-                    Console.WriteLine(elbil.HvilkenBilErJeg());
-                    Console.WriteLine(elbil.BilPrisExAfgift);
-                    Console.WriteLine(elbil.TotalPris());
+                    if (typeof(ElBil).GetInterfaces().Contains(typeof(IelMotor)))
+                    {
+                        ElBil elbil = bil as ElBil;
+                        Console.WriteLine(elbil.BatteriKapacitet);
+                        Console.WriteLine(elbil.HvilkenBilErJeg());
+                        Console.WriteLine(elbil.BilPrisExAfgift);
+                        Console.WriteLine(elbil.TotalPris());
+                        Console.WriteLine(elbil.LadeTid());
+                    }
+
                 }
 
             }
