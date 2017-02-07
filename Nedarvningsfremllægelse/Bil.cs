@@ -18,6 +18,8 @@ namespace Nedarvningsfremllægelse
 
         public int KmPrLiter { get; set; }
 
+        public int Oktan { get; set; }
+
         public Bil(string mærke, int bilPrisExAfgift, int købsår, int kmPrLiter, string registreringsNr)
         {
             this.Mærke = mærke;
@@ -69,5 +71,12 @@ namespace Nedarvningsfremllægelse
         }
 
         public abstract int HalvÅrligEjerafgift();
+
+        public abstract int Rækkevidde();
+
+        public virtual string HvilkenBilErJeg()
+        {
+            return "Jeg er en Class Bil";
+        }
     }
 }

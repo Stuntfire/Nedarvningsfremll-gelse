@@ -9,15 +9,17 @@ namespace Nedarvningsfremllægelse
     class DieselBil : Bil
     {
         public bool PartikelFilter { get; private set; }
+        public int Tank { get; set; }
 
-        public DieselBil(string mærke, int bilPrisExAfgift, int købsår, int kmPrLiter, string registreringsNr, bool partikelFilter) 
+        public DieselBil(string mærke, int bilPrisExAfgift, int købsår, int kmPrLiter, string registreringsNr, bool partikelFilter, int tank) 
             : base(mærke, bilPrisExAfgift, købsår, kmPrLiter, registreringsNr)
         {
             this.PartikelFilter = partikelFilter;
+            this.Tank = tank;
         }
 
-        public DieselBil(string mærke, int bilPrisExAfgift, int købsår, int kmPrLiter, string registreringsNr) 
-            : this(mærke, bilPrisExAfgift, købsår, kmPrLiter, registreringsNr, true)
+        public DieselBil(string mærke, int bilPrisExAfgift, int købsår, int kmPrLiter, string registreringsNr, int tank) 
+            : this(mærke, bilPrisExAfgift, købsår, kmPrLiter, registreringsNr, true, tank)
         {
 
         }
@@ -30,7 +32,7 @@ namespace Nedarvningsfremllægelse
                 {
                     return 2000;
                 }
-                else if (KmPrLiter > 15 && KmPrLiter < 25)
+                else if (KmPrLiter >= 15 && KmPrLiter <= 25)
                 {
                     return 1000;
                 }
@@ -52,8 +54,16 @@ namespace Nedarvningsfremllægelse
                     return 850;
             }
 
+        }
 
+        public override string HvilkenBilErJeg()
+        {
+            return "Jeg er en Class DieselBil";
+        }
 
+        public override int Rækkevidde()
+        {
+            return Tank * KmPrLiter;
         }
 
         // Sådan så metoden ud inden Bil.cs blev ændret til abstract
