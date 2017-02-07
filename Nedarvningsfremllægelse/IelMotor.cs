@@ -8,5 +8,6 @@ namespace Nedarvningsfremllægelse
 {
     interface IelMotor
     {
+        int LadeTid();
     }
 }

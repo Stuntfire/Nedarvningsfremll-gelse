@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Nedarvningsfremllægelse
 {
-    class ElBil : Bil
+    class ElBil : Bil, IelMotor
     {
         public int BatteriKapacitet { get; set; }
         public int KmPrKW { get; set; }
@@ -34,6 +34,11 @@ namespace Nedarvningsfremllægelse
         public override string HvilkenBilErJeg()
         {
             return "Jeg er en Class Elbil";
+        }
+
+        public int LadeTid()
+        {
+            return 5;
         }
     }
 }
