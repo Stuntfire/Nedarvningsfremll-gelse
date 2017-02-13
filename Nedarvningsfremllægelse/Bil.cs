@@ -32,7 +32,7 @@ namespace Nedarvningsfremllægelse
         }
 
         // methods
-        private virtual int RegistreringsAfgift()
+        public virtual int RegistreringsAfgift()
         {
             int lavAfgift = 0;
             int højAfgift = 0;
